@@ -18,6 +18,9 @@ outputFileName = "BWImport-Passwords.csv"
 passwords = []
 missing_passwords = []
 
+# Used for storing passwords found in the XML to prevent defaults when dealing with the App Logins from the text file
+passwordNamelist = []
+
 with open(sourceXMLFilePath, "r", encoding="utf-16") as sourceFile:
     data = sourceFile.read()
 
@@ -106,5 +109,3 @@ with open(outputFileName, "w", newline="") as csvfile:
         writer.writerow(password)
 
 print(f"Output file written to: {outputFileName}")
-
-# TODO - Get 'App Accounts' from text export sp_export.txt - CANT DO, NO WAY TO DIFFERENTIATE FROM EXISTING PASSWORDS
